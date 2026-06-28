@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С ДНЁМ РОЖДЕНИЯ!!!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/birthday.css">
+</head>
+<body class="birthday-page">
+    <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80" class="background-svg">
+        <defs>
+            <style>
+                @keyframes rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                .out-top {
+                    animation: rotate 20s linear infinite;
+                    transform-origin: 13px 25px;
+                }
+                .in-top {
+                    animation: rotate 10s linear infinite;
+                    transform-origin: 13px 25px;
+                }
+                .out-bottom {
+                    animation: rotate 25s linear infinite;
+                    transform-origin: 84px 93px;
+                }
+                .in-bottom {
+                    animation: rotate 15s linear infinite;
+                    transform-origin: 84px 93px;
+                }
+            </style>
+        </defs>
+        <path fill="#3A2A48" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+        <path fill="#4A3A58" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+        <path fill="#403048" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+        <path fill="#504060" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+    </svg>
+    
+    <!-- Экран загрузки -->
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">подожди<span class="loading-dots"></span></p>
+    </div>
+    
+    <!-- Контент поздравления -->
+    <div class="birthday-container">
+        <div class="birthday-content">
+            <!-- ЗАМЕНИТЬ: Первый арт - Слайдшоу -->
+            <div class="art-wrapper">
+                <div class="art-slideshow-container">
+                    <div class="art-slide active">
+                        <img src="images/what/1.png" alt="Art 1" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/2.png" alt="Art 2" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/3.png" alt="Art 3" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/4.png" alt="Art 4" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/5.png" alt="Art 5" class="art-slide-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Перегородка -->
+            <div class="divider"></div>
+            
+            <!-- ЗАМЕНИТЬ: Длинный текст поздравления -->
+            <div class="glass-box">
+                <p class="long-text">
+                    <span class="underline-text">С днём рождения</span> тебя машунь!! я поздравляю тебя с этим днём, 
+                    и твоим 16-ти летием. это особенный день для тебя, и я очень
+                    рад за тебя как никогда. я считаю, мы неожиданно познакомились, 
+                    но я был очень рад этому событию, и я очень ценю каждую секунду общения 
+                    с тобой. ты <span class="glow-text">особенный человек</span>, 
+                    и не только для меня, а и в общем. я всегда воздерживаюсь от пожеланий, но.. 
+                    для тебя это исключение. единственное что я хочу пожелать, что самое главное - 
+                    чтобы всё у тебя наладилось. пусть все твои проблемы, весь твой стресс, все трудности уйдут, 
+                    я всегда буду надеется на хорошее для тебя. ты очень <span class="glow-text">ценный</span> для меня человек
+                    , и для меня ты в отдельном месте в моём сердце.
+                </p>
+            </div>
+            
+            <!-- Персонаж у текста -->
+            <div class="text-character" id="textCharacter">
+                <img src="images/placeholder-character-text.png" alt="Character" class="text-character-image">
+            </div>
+            
+            <!-- Кнопка для продолжения -->
+            <div class="continue-section">
+                <p class="continue-text">но это ещё не всё..</p>
+                <button class="continue-button" id="continueButton">нажми</button>
+            </div>
+            
+            <!-- Переходный текст -->
+            <div class="transition-text" id="transitionText">
+                <p class="transition-content">я хочу тебе сказать что...</p>
+            </div>
+            
+            <!-- Скрытый контент -->
+            <div class="hidden-content" id="hiddenContent">
+                <div class="photos-container">
+                <!-- Музыкальный плеер -->
+                <div class="music-player-wrapper">
+                    <div class="music-player-character" id="musicPlayerCharacter">
+                        <img src="images/placeholder-character-player.png" alt="Character on player" class="music-character-image">
+                    </div>
+                    <div class="music-player">
+                        <div class="music-cover">
+                            <img src="images/placeholder-cover.png" alt="Album cover" class="cover-image">
+                        </div>
+                        <div class="music-info">
+                            <p class="music-title">такая, как все</p>
+                            <p class="music-artist">zhanulka</p>
+                            <div class="progress-container">
+                                <input type="range" class="progress-slider" id="progressSlider" value="0" min="0" max="100">
+                                <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <button class="play-button" id="playButton">
+                                <span class="play-icon"></span>
+                            </button>
+                            <div class="volume-control">
+                                <input type="range" class="volume-slider" id="volumeSlider" value="10" min="0" max="100">
+                                <span class="volume-icon">🔊</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="photo-caption">ты такая же прекрасная как <span class="underline-text">эта песня</span></p>
+                </div>
+                
+                <!-- ЗАМЕНИТЬ: Фото 2 - Слайдшоу -->
+                <div class="photo-wrapper">
+                    <div class="slideshow-container">
+                        <div class="slide active">
+                            <img src="images/placeholder-cat1.png" alt="Cat 1" class="slide-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/placeholder-cat2.png" alt="Cat 2" class="slide-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/placeholder-cat3.png" alt="Cat 3" class="slide-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/placeholder-cat4.png" alt="Cat 4" class="slide-image">
+                        </div>
+                    </div>
+                    <p class="photo-caption">ты также идеальна как эти <span class="cat-ears">котики</span></p>
+                </div>
+            </div>
+            
+            <!-- ЗАМЕНИТЬ: Короткий текст после фото -->
+            <div class="glass-box">
+                <p class="short-text">
+                    и ты всегда будешь прекрасной как выше сказано. будь просто собой, 
+                    ты всегда прекрасна та, какая ты есть. ты правда большая молодец, 
+                    что двигаешься дальше, я очень горжусь тобой, и твоими успехами. проведи этот день с большим 
+                    удовольствием, ещё раз с днём рождения тебя :3
+                </p>
+            </div>
+
+            <div class="divider"></div>
+            
+            <!-- Арт-персонажи -->
+            <div class="characters-container">
+                <div class="character-wrapper" id="character1">
+                    <img src="images/placeholder-character1.png" alt="Character 1" class="character-image" data-gif="images/placeholder-character1.gif">
+                </div>
+                <div class="character-wrapper" id="character2">
+                    <img src="images/placeholder-character2.png" alt="Character 2" class="character-image" data-gif="images/placeholder-character2.gif">
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно для просмотра фото -->
+    <div class="photo-modal" id="photoModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <img src="" alt="Full size" class="modal-image" id="modalImage">
+    </div>
+    
+    <!-- Аудио элемент для музыки -->
+    <audio id="audioPlayer" src="music/placeholder-music.mp3" preload="auto"></audio>
+    
+    <script src="js/birthday.js"></script>
+</body>
+</html>
