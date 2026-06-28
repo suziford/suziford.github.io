@@ -52,26 +52,43 @@
     <!-- Контент поздравления -->
     <div class="birthday-container">
         <div class="birthday-content">
-            <!-- ЗАМЕНИТЬ: Первый арт -->
+            <!-- ЗАМЕНИТЬ: Первый арт - Слайдшоу -->
             <div class="art-wrapper">
-                <img src="images/placeholder-art.png" alt="Art" class="art-image">
-                <p class="art-caption glow-bold-text">С ДНЁМ РОЖДЕНИЯ ТЕБЯ МАШУНЬЬ!!</p>
+                <div class="art-slideshow-container">
+                    <div class="art-slide active">
+                        <img src="images/what/1.png" alt="Art 1" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/2.png" alt="Art 2" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/3.png" alt="Art 3" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/4.png" alt="Art 4" class="art-slide-image">
+                    </div>
+                    <div class="art-slide">
+                        <img src="images/what/5.png" alt="Art 5" class="art-slide-image">
+                    </div>
+                </div>
             </div>
+            
+            <!-- Перегородка -->
+            <div class="divider"></div>
             
             <!-- ЗАМЕНИТЬ: Длинный текст поздравления -->
             <div class="glass-box">
                 <p class="long-text">
-                    <span class="underline-text">С днём рождения</span> тебя маш!! я поздравляю тебя с этим днём, 
+                    <span class="underline-text">С днём рождения</span> тебя машунь!! я поздравляю тебя с этим днём, 
                     и твоим 16-ти летием. это особенный день для тебя, и я очень
                     рад за тебя как никогда. я считаю, мы неожиданно познакомились, 
                     но я был очень рад этому событию, и я очень ценю каждую секунду общения 
-                    с тобой. ты <span class="glow-text">особенный человек</span> 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
+                    с тобой. ты <span class="glow-text">особенный человек</span>, 
+                    и не только для меня, а и в общем. я всегда воздерживаюсь от пожеланий, но.. 
+                    для тебя это исключение. единственное что я хочу пожелать, что самое главное - 
+                    чтобы всё у тебя наладилось. пусть все твои проблемы, весь твой стресс, все трудности уйдут, 
+                    я всегда буду надеется на хорошее для тебя. ты очень <span class="glow-text">ценный</span> для меня человек
+                    , и для меня ты в отдельном месте в моём сердце.
                 </p>
             </div>
             
@@ -84,6 +101,11 @@
             <div class="continue-section">
                 <p class="continue-text">но это ещё не всё..</p>
                 <button class="continue-button" id="continueButton">нажми</button>
+            </div>
+            
+            <!-- Переходный текст -->
+            <div class="transition-text" id="transitionText">
+                <p class="transition-content">я хочу тебе сказать что...</p>
             </div>
             
             <!-- Скрытый контент -->
@@ -119,10 +141,23 @@
                     <p class="photo-caption">ты такая же прекрасная как <span class="underline-text">эта песня</span></p>
                 </div>
                 
-                <!-- ЗАМЕНИТЬ: Фото 2 -->
+                <!-- ЗАМЕНИТЬ: Фото 2 - Слайдшоу -->
                 <div class="photo-wrapper">
-                    <img src="images/placeholder-photo2.png" alt="Photo 2" class="photo">
-                    <p class="photo-caption">Подпись фото 2</p>
+                    <div class="slideshow-container">
+                        <div class="slide active">
+                            <img src="images/placeholder-cat1.png" alt="Cat 1" class="slide-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/placeholder-cat2.png" alt="Cat 2" class="slide-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/placeholder-cat3.png" alt="Cat 3" class="slide-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/placeholder-cat4.png" alt="Cat 4" class="slide-image">
+                        </div>
+                    </div>
+                    <p class="photo-caption">ты также идеальна как эти <span class="cat-ears">котики</span></p>
                 </div>
                 
                 <!-- ЗАМЕНИТЬ: Фото 3 -->
@@ -135,12 +170,14 @@
             <!-- ЗАМЕНИТЬ: Короткий текст после фото -->
             <div class="glass-box">
                 <p class="short-text">
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
-                    плейсхолдер плейсхолдер плейсхолдер плейсхолдер 
+                    и ты всегда будешь прекрасной как выше сказано. будь просто собой, 
+                    ты всегда прекрасна та, какая ты есть. ты правда большая молодец, 
+                    что двигаешься дальше, я очень горжусь тобой, и твоими успехами. проведи этот день с большим 
+                    удовольствием, ещё раз с днём рождения тебя :3
                 </p>
             </div>
+
+            <div class="divider"></div>
             
             <!-- Арт-персонажи -->
             <div class="characters-container">

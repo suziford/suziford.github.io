@@ -59,9 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 600);
 
             // Картинки и короткий текст скрыты, показываем только после клика на кнопку
-            // Инициализация модального окна для фото
-            setupPhotoModal();
-            
             // Инициализация эффектов для текстовых элементов
             setupTextEffects();
             
@@ -76,6 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Инициализация персонажа у текста
             setupTextCharacter();
+            
+            // Инициализация слайдшоу
+            setupSlideshow();
+            
+            // Инициализация слайдшоу арта
+            setupArtSlideshow();
             
             // Обработчик кнопки продолжения
             if (continueButton) {
@@ -96,15 +99,32 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Отключаем кнопку
                     this.disabled = true;
                     
-                    // Показываем скрытый контент
-                    hiddenContent.classList.add('visible');
+                    // Показываем переходный текст
+                    const transitionText = document.getElementById('transitionText');
+                    if (transitionText) {
+                        setTimeout(() => {
+                            transitionText.classList.add('visible');
+                        }, 300);
+                    }
                     
-                    // Плавная прокрутка вниз на небольшое расстояние
+                    // Первый этап скролла - к тексту
                     setTimeout(() => {
                         const currentScroll = window.scrollY;
-                        const targetScroll = currentScroll + 200; // Прокручиваем только на 200px
-                        smoothScrollTo(targetScroll, 800); // 800ms для плавности
-                    }, 100);
+                        const targetScroll = currentScroll + 100;
+                        smoothScrollTo(targetScroll, 1000);
+                        
+                        // После завершения первого скролла показываем контент
+                        setTimeout(() => {
+                            hiddenContent.classList.add('visible');
+                            
+                            // Второй этап скролла - после появления контента
+                            setTimeout(() => {
+                                const currentScroll = window.scrollY;
+                                const targetScroll = currentScroll + 300;
+                                smoothScrollTo(targetScroll, 1200);
+                            }, 200);
+                        }, 1100);
+                    }, 400);
                     
                     // Последовательное появление элементов
                     setTimeout(function() {
@@ -287,6 +307,50 @@ function createHeartParticles(x, y) {
             heart.remove();
         }, 1000);
     }
+}
+
+// Слайдшоу
+function setupSlideshow() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function nextSlide() {
+        // Убираем активный класс с текущего слайда
+        slides[currentSlide].classList.remove('active');
+        
+        // Переходим к следующему слайду
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Добавляем активный класс следующему слайду
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Переключаем слайды каждые 3.5 секунды
+    setInterval(nextSlide, 3500);
+}
+
+// Слайдшоу для арта
+function setupArtSlideshow() {
+    const slides = document.querySelectorAll('.art-slide');
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function nextSlide() {
+        // Убираем активный класс с текущего слайда
+        slides[currentSlide].classList.remove('active');
+        
+        // Переходим к следующему слайду
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Добавляем активный класс следующему слайду
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Переключаем слайды каждые 1.5 секунды
+    setInterval(nextSlide, 1500);
 }
 
 // Арт-персонажи
@@ -491,8 +555,9 @@ function createBorderParticles(element) {
     }
 }
 
-// Модальное окно для просмотра фото
+// Модальное окно для просмотра фото (отключено)
 function setupPhotoModal() {
+    return; // Функция отключена
     const modal = document.getElementById('photoModal');
     const modalImage = document.getElementById('modalImage');
     const modalClose = document.getElementById('modalClose');

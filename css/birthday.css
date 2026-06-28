@@ -169,8 +169,6 @@
     align-items: center;
     opacity: 0;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 15px;
@@ -249,14 +247,14 @@
 
 .music-title {
     font-size: 0.95rem;
-    color: var(--color-text);
+    color: #C8C8D0;
     margin: 0 0 5px 0;
     font-weight: 500;
 }
 
 .music-artist {
     font-size: 0.8rem;
-    color: var(--color-text);
+    color: #C8C8D0;
     margin: 0;
     opacity: 0.7;
 }
@@ -515,15 +513,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+/* Слайдшоу для арта */
+.art-slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
     border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(90, 74, 104, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.art-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.art-slide.active {
+    opacity: 1;
+}
+
+.art-slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .art-caption {
@@ -532,6 +555,16 @@
     color: var(--color-text);
     text-align: center;
     opacity: 0.8;
+}
+
+/* Перегородка */
+.divider {
+    width: 100%;
+    max-width: 500px;
+    height: 2px;
+    margin: 30px auto;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 1px;
 }
 
 .glass-box {
@@ -566,6 +599,84 @@
 
 .text-character.squish {
     animation: squishSpring 0.6s ease-in-out;
+}
+
+/* Переходный текст */
+.transition-text {
+    text-align: center;
+    margin: 40px 0 120px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.transition-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.transition-content {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ffffff, #d4d4d4, #ffffff, #d4d4d4);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 2s ease-in-out infinite;
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+}
+
+.transition-content::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    right: -10px;
+    bottom: -5px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.transition-content::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff, #d4d4d4, #ffffff, #d4d4d4);
+    background-size: 300% auto;
+    animation: gradientShift 2s ease-in-out infinite;
+    border-radius: 1px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .long-text {
@@ -615,9 +726,9 @@
 .photo-caption {
     margin-top: 10px;
     font-size: 0.9rem;
-    color: var(--color-text);
     text-align: center;
     opacity: 0.8;
+    color: #C8C8D0;
 }
 
 .short-text {
@@ -677,6 +788,64 @@
     font-weight: bold;
     color: #ffffff;
     text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+/* Слайдшоу */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ушки для слова */
+.cat-ears {
+    position: relative;
+    display: inline-block;
+    color: #C8C8D0;
+}
+
+.cat-ears::before,
+.cat-ears::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #C8C8D0;
+}
+
+.cat-ears::before {
+    left: 0;
+    transform: rotate(-20deg);
+}
+
+.cat-ears::after {
+    right: 0;
+    transform: rotate(20deg);
 }
 
 /* Модальное окно для просмотра фото */
@@ -757,5 +926,24 @@ body.modal-open {
 
     .short-text {
         font-size: 0.95rem;
+    }
+
+    .music-title {
+        font-size: 0.85rem;
+        color: #C8C8D0;
+    }
+
+    .music-artist {
+        font-size: 0.75rem;
+        color: #C8C8D0;
+    }
+
+    .cat-ears {
+        color: #C8C8D0;
+    }
+
+    .cat-ears::before,
+    .cat-ears::after {
+        border-bottom-color: #C8C8D0;
     }
 }
